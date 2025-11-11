@@ -113,7 +113,7 @@ public class GameManager : IDisposable
     public void Dispose()
     {
         Console.WriteLine("Session was closed.");
-        if (_gamePath != null && Directory.Exists(_gamePath))
+        if (Directory.Exists(_gamePath))
             Directory.Delete(_gamePath, true);
 
         GC.SuppressFinalize(this);
