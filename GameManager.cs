@@ -3,6 +3,7 @@ using System.Timers;
 using FilesGame.Objects;
 using Timer = System.Timers.Timer;
 using Object = FilesGame.Objects.Object;
+using System.Runtime.InteropServices;
 
 namespace FilesGame;
 
@@ -100,6 +101,8 @@ public class GameManager : IDisposable
             File.Delete(i);
         foreach (var i in newFiles)
             File.Create(i).Dispose();
+        
+        ShellApi.RefreshAllExplorerWindows();
     }
 
     ~GameManager()
